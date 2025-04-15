@@ -42,14 +42,14 @@ const teamMembers = [
 
 // Dichiaro la funzione mediante la quale genero la card di un membro
 const generateMemberCardHTML = (name, role, email, img) => {
-  return `<div class="col-4">
-            <div class="card mb-3" >
+  return `<div class="col-xl-4 col-md-6 col-12 fs-5 mb-2">
+            <div class="card" >
               <div class="row g-0 bg-black text-light">
                 <div class="col-4">
-                  <img src="${img}" class="img-fluid rounded-start" alt="${name}">
+                  <img src="${img}" class="img-fluid h-100" alt="${name}">
                 </div>
                <div class="col-8">
-                  <div class="card-body">
+                  <div class="card-body d-flex flex-column justify-content-evenly">
                     <h5 id="fullname" class="card-title">${name}</h5>
                     <p id="role" class="card-text">${role}</p>
                     <p id="email" class="card-text"><small><a href="#">${email}</a></small></p>
