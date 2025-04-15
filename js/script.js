@@ -69,7 +69,8 @@ for(const member of teamMembers) {
   cardsHTML += generateMemberCardHTML(name, role, email, img);
   teamContainer.innerHTML = cardsHTML;
 }
-
+// # BONUS
+// Recupero il form e i vari input
 const newMemberForm = document.getElementById(`new-member-form`);
 
 const nameInput = document.getElementById(`name-input`);
@@ -77,6 +78,7 @@ const roleInput = document.getElementById(`role-input`);
 const emailInput = document.getElementById(`email-input`);
 const imgInput = document.getElementById(`img-input`);
 
+// All'invio dei dati creo una card per il nuovo membro
 newMemberForm.addEventListener(`submit`, (e) => {
   e.preventDefault();
 
