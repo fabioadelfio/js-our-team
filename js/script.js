@@ -1,3 +1,4 @@
+// Recupero il container dentro il quale andranno le cards dei vari membri
 const teamContainer = document.getElementById(`team-container`);
 
 const teamMembers = [
@@ -39,6 +40,7 @@ const teamMembers = [
   }
 ];
 
+// Dichiaro la funzione mediante la quale genero la card di un membro
 const generateMemberCardHTML = (name, role, email, img) => {
   return `<div class="col-4">
             <div class="card mb-3" >
@@ -58,6 +60,8 @@ const generateMemberCardHTML = (name, role, email, img) => {
           </div>`
 }
 
+// Per ogni membro all'interno dell'array genero una card 
+// e la inserisco all'interno della section teamContainer nell'HTML
 let cardsHTML = '';
 
 for(const member of teamMembers) {
@@ -65,3 +69,26 @@ for(const member of teamMembers) {
   cardsHTML += generateMemberCardHTML(name, role, email, img);
   teamContainer.innerHTML = cardsHTML;
 }
+
+const newMemberForm = document.getElementById(`new-member-form`);
+
+const nameInput = document.getElementById(`name-input`);
+const roleInput = document.getElementById(`role-input`);
+const emailInput = document.getElementById(`email-input`);
+const imgInput = document.getElementById(`img-input`);
+
+newMemberForm.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+
+  const name = nameInput.value;
+  const role = roleInput.value;
+  const email = emailInput.value;
+  const img = imgInput.value;
+
+  const newMember = { name, role, email, img };
+  teamMembers.push(newMember);
+  console.table(teamMembers);
+
+  teamContainer.innerHTML += generateMemberCardHTML(name, role, email, img);
+
+});
